@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slug - Temporary Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-comment-slash"></i> Slug Chat</h1>
+            <p class="tagline">Temporary conversations that disappear after 24 hours</p>
+        </header>
+
+        <div class="chat-container">
+            <div class="sidebar">
+                <div class="user-list">
+                    <h3><i class="fas fa-users"></i> Online Users</h3>
+                    <ul id="users"></ul>
+                </div>
+                <div class="call-controls">
+                    <button id="startCallBtn" class="call-btn">
+                        <i class="fas fa-phone"></i> Start Group Call
+                    </button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="messages" id="messages"></div>
+                <div class="message-input">
+                    <input type="text" id="messageInput" placeholder="Type your message...">
+                    <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="callModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2><i class="fas fa-phone"></i> Incoming Call</h2>
+                <p>A group call has been started. Join now?</p>
+                <div class="modal-buttons">
+                    <button id="joinCallBtn" class="call-btn accept"><i class="fas fa-phone"></i> Join Call</button>
+                    <button id="declineCallBtn" class="call-btn decline"><i class="fas fa-times"></i> Decline</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="callInterface" class="call-interface hidden">
+            <div class="call-header">
+                <h3>Group Call</h3>
+                <button id="endCallBtn" class="end-call-btn"><i class="fas fa-phone-slash"></i> End Call</button>
+            </div>
+            <div class="video-container" id="videoContainer"></div>
+            <div class="call-controls">
+                <button id="muteBtn" class="control-btn"><i class="fas fa-microphone"></i></button>
+                <button id="videoBtn" class="control-btn"><i class="fas fa-video"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
